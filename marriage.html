@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation | Suma & Vijay</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #4b0715;
+    color: #ffe9b0;
+    overflow-x: hidden;
+}
+
+/* Background */
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 15px;
+    background:
+        radial-gradient(ellipse at top, #8c1b2d, #390510 75%);
+}
+
+/* Invitation Card */
+.invitation {
+    width: 100%;
+    max-width: 760px;
+    text-align: center;
+    position: relative;
+    padding: 45px 35px;
+    background: linear-gradient(145deg, #7d1224, #4b0715);
+    border: 5px double #e6bd65;
+    border-radius: 12px;
+    box-shadow: 0 0 40px #0008;
+    overflow: hidden;
+    animation: appear 1.5s ease;
+}
+
+.invitation::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 1px solid #d8ad54;
+    pointer-events: none;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mango Leaf Decorations */
+.toran {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin: 5px 0 25px;
+}
+
+.leaf {
+    width: 25px;
+    height: 43px;
+    background: linear-gradient(135deg, #7fc94d, #1c652b);
+    border-radius: 0 100% 0 100%;
+    transform: rotate(45deg);
+    transform-origin: center;
+    animation: sway 2s ease-in-out infinite alternate;
+    box-shadow: inset 2px 2px 4px #ffffff30;
+}
+
+.leaf:nth-child(even) {
+    animation-delay: 0.5s;
+    transform: rotate(135deg);
+}
+
+@keyframes sway {
+    from { rotate: -8deg; }
+    to { rotate: 8deg; }
+}
+
+/* Ganapathi */
+.ganapathi {
+    font-size: 60px;
+    margin: 10px 0;
+    animation: glow 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px #ffcc55);
+}
+
+@keyframes glow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+.om {
+    color: #ffd66e;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+/* Text */
+.small-title {
+    font-size: 17px;
+    letter-spacing: 3px;
+    color: #f8d78b;
+    margin: 10px 0;
+}
+
+h1 {
+    font-size: clamp(30px, 7vw, 53px);
+    color: #ffdf8c;
+    margin: 18px 0;
+    text-shadow: 0 0 15px #e9ad4d55;
+}
+
+.names {
+    font-size: clamp(35px, 8vw, 62px);
+    font-weight: bold;
+    color: #ffe6a6;
+    line-height: 1.3;
+    animation: fadeIn 2s ease;
+}
+
+.heart {
+    color: #ffb4b4;
+    font-size: 35px;
+    display: block;
+    margin: 5px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.divider {
+    color: #e7bb62;
+    font-size: 25px;
+    margin: 22px 0;
+}
+
+.message {
+    font-size: 18px;
+    line-height: 1.9;
+    color: #ffedc4;
+    margin: 20px auto;
+    max-width: 560px;
+}
+
+.qualification {
+    font-size: 17px;
+    color: #f8dca2;
+    line-height: 2;
+}
+
+.details {
+    background: #3e0711;
+    border: 1px solid #c99c4c;
+    border-radius: 10px;
+    padding: 25px 15px;
+    margin: 30px 0;
+    box-shadow: 0 0 20px #0003;
+}
+
+.details h2 {
+    font-size: 28px;
+    color: #ffdc88;
+    margin-bottom: 15px;
+}
+
+.details p {
+    font-size: 18px;
+    line-height: 2;
+    color: #ffedc4;
+}
+
+.label {
+    color: #e7bb62;
+    font-weight: bold;
+}
+
+.venue {
+    font-size: 21px !important;
+    color: #ffe5a1 !important;
+    font-weight: bold;
+}
+
+/* Bottom Family Section */
+.family {
+    border-top: 1px solid #d6ac58;
+    margin-top: 30px;
+    padding-top: 25px;
+}
+
+.family h3 {
+    font-size: 25px;
+    color: #ffdc88;
+    margin-bottom: 15px;
+}
+
+.family p {
+    font-size: 17px;
+    line-height: 2;
+}
+
+.friends {
+    margin-top: 20px;
+}
+
+.friends span {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 4px;
+    border: 1px solid #d6ac58;
+    border-radius: 20px;
+    color: #ffe5a1;
+    font-size: 15px;
+}
+
+/* Floating petals */
+.petal {
+    position: fixed;
+    top: -30px;
+    z-index: 10;
+    pointer-events: none;
+    color: #ffd2d2;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-5vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.footer {
+    margin-top: 25px;
+    color: #e9c77d;
+    font-size: 16px;
+    font-style: italic;
+}
+
+@media (max-width: 500px) {
+    .invitation {
+        padding: 35px 20px;
+    }
+
+    .message {
+        font-size: 16px;
+    }
+
+    .details p {
+        font-size: 16px;
+    }
+
+    .leaf {
+        width: 18px;
+        height: 33px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+    <div class="invitation">
+
+        <!-- Mango Leaf Toran -->
+        <div class="toran" id="toran"></div>
+
+        <div class="om">ॐ श्री गणेशाय नमः</div>
+
+        <!-- Ganapathi Blessings -->
+        <div class="ganapathi">🙏 🪔</div>
+
+        <p class="small-title">॥ SHUBH VIVAH ॥</p>
+
+        <h1>Wedding Invitation</h1>
+
+        <div class="divider">❧ ❀ ❧</div>
+
+        <p class="message">
+            With the blessings of Lord Ganesha and our elders,
+            we cordially invite you to celebrate the auspicious
+            wedding ceremony of
+        </p>
+
+        <div class="names">
+            Suma
+            <span class="heart">♥</span>
+            Vijay
+        </div>
+
+        <div class="divider">✦ ❖ ✦</div>
+
+        <div class="qualification">
+            <p><strong>Bride:</strong> Suma — B.Tech</p>
+            <p><strong>Groom:</strong> Vijay — M.Tech</p>
+        </div>
+
+        <p class="message">
+            Two hearts, two families, and one beautiful beginning.
+            Your presence and blessings will make our celebration
+            even more special.
+        </p>
+
+        <!-- Wedding Details -->
+        <div class="details">
+            <h2>💐 Wedding Details 💐</h2>
+
+            <p>
+                <span class="label">Date</span><br>
+                Thursday, December 3, 2026
+            </p>
+
+            <p>
+                <span class="label">Venue</span><br>
+                <span class="venue">Kusuma Satya Function Hall</span><br>
+                Main Road, Kakinada
+            </p>
+
+            <p>
+                <span class="label">With Love & Blessings</span><br>
+                Join us to celebrate this special day!
+            </p>
+        </div>
+
+        <!-- Family Names -->
+        <div class="family">
+            <h3>With Best Compliments From</h3>
+
+            <p>
+                <strong>Father:</strong> Sirangi Raju
+            </p>
+
+            <p>
+                <strong>Mother:</strong> Sirangi Satya
+            </p>
+
+            <div class="divider">❀ ❖ ❀</div>
+
+            <h3>With Love From Friends</h3>
+
+            <div class="friends">
+                <span>Deepu</span>
+                <span>Raji</span>
+                <span>Mouni</span>
+                <span>Jyo</span>
+                <span>Puji</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            "May your love grow stronger with every passing day." 💛
+        </div>
+
+        <div class="toran" id="bottomToran"></div>
+
+    </div>
+</div>
+
+<script>
+// Create animated mango leaf decorations
+function createToran(id, count) {
+    const container = document.getElementById(id);
+
+    for (let i = 0; i < count; i++) {
+        const leaf = document.createElement("div");
+        leaf.className = "leaf";
+        leaf.style.animationDelay = (i * 0.15) + "s";
+        container.appendChild(leaf);
+    }
+}
+
+createToran("toran", 15);
+createToran("bottomToran", 15);
+
+// Create falling flower petals
+const petalSymbols = ["🌸", "🌺", "✿", "❀"];
+
+for (let i = 0; i < 24; i++) {
+    const petal = document.createElement("div");
+    petal.className = "petal";
+    petal.textContent =
+        petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
+
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = (6 + Math.random() * 9) + "s";
+    petal.style.animationDelay = (Math.random() * 10) + "s";
+    petal.style.fontSize = (12 + Math.random() * 15) + "px";
+
+    document.body.appendChild(petal);
+}
+</script>
+
+</body>
+</html>
